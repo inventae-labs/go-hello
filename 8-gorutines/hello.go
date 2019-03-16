@@ -58,7 +58,7 @@ func main() {
 		c2 <- "dois"
 	}()
 
-	// Select
+	// Select e Timeout
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-c1:
@@ -79,8 +79,6 @@ func main() {
 
 	fmt.Println("aguardando receber msg", <-pongs)
 
-	// Timeouts
-	// http://goporexemplo.golangbr.org/timeouts.html
 }
 
 func ping(pings chan<- string, msg string) {
